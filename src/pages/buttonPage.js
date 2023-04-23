@@ -3,9 +3,6 @@ import { GoBell, GoDatabase, GoCloudDownload } from "react-icons/go";
 import Button from "../components/Button";
 
 function ButtonPage() {
-  const handleClick = () => {
-    console.log("buton presed");
-  };
   return (
     <div>
       <div>
