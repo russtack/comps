@@ -1,5 +1,22 @@
-function Modal() {
-  return <div>Moadl!</div>;
+import ReactDOM from "react-dom";
+
+function Modal({ onClose }) {
+  return ReactDOM.createPortal(
+    <div>
+      <div
+        onClick={onClose}
+        className="absolute inset-0 bg-gray-300 opacity-80"
+      ></div>
+      <div className="absolute inset-40 p-10 bg-white">
+        {" "}
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
+        dicta facere quibusdam totam non mollitia, quos quisquam, asperiores
+        architecto similique beatae, perferendis quod autem aut dolorem ullam
+        explicabo recusandae nulla.
+      </div>
+    </div>,
+    document.querySelector(".modal-container")
+  );
 }
 
 export default Modal;
