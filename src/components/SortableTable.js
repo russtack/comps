@@ -4,7 +4,7 @@ import Table from "./Table";
 function SortableTable(props) {
   const [sortOrder, setSortOrder] = useState(null);
   const [sortBy, setSortBy] = useState(null);
-  const { config } = props;
+  const { config, data } = props;
   const handleClick = (label) => {
     if (setSortOrder === null) {
       setSortOrder("asc");
@@ -34,7 +34,11 @@ function SortableTable(props) {
       ),
     };
   });
-
+  let sortedData = data;
+  if (sortOrder && sortBy) {
+    const { sortValue } = config.find((column) => column.label === sortBy);
+    sortedData = [...data];
+  }
   return <Table {...props} config={updatedConfig} />;
 }
 
